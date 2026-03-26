@@ -1,0 +1,14 @@
+module mux_2_1_tb;
+  reg i0,i1;
+  reg s;
+  wire y;
+  mux_2_1 DUT(s,i0,i1,y);
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars;
+    $monitor("s=%b,i0=%b,i1=%b,y=%b",s,i0,i1,y);
+    i0=0;i1=1;
+    s=0;#10
+    s=1;
+  end
+endmodule
