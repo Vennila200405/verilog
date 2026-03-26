@@ -1,0 +1,8 @@
+module half_subtractor(a,b,difference,borrow);
+  input a,b;
+  output difference,borrow;
+  xor(difference,a,b);
+  wire w1;
+  not(w1,a);
+  and(borrow,w1,b);
+endmodule
