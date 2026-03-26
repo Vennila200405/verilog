@@ -1,0 +1,12 @@
+module mux_4_1(i0,i1,i2,i3,s0,s1,y);
+  input i0,i1,i2,i3,s0,s1;
+  output y;
+  wire ns0,ns1,w1,w2,w3,w4;
+  not(ns1,s1);
+  not(ns0,s0);
+  and(w1,i0,ns1,ns0);
+  and(w2,i1,ns1,s0);
+  and(w3,i2,s1,ns0);
+  and(w4,i3,s1,s0);
+  or(y,w1,w2,w3,w4);
+endmodule
