@@ -1,0 +1,12 @@
+module full_subtractor(a,b,c,difference,borrow);
+  input a,b,c;
+  output difference,borrow;
+  wire na,w1,w2,w3;
+  xor(difference,a,b,c);
+  not(na,a);
+  and(w1,na,b);
+  and(w2,b,c);
+  and(w3,na,c);
+  or(borrow,w1,w2,w3);
+endmodule
+  
