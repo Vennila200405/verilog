@@ -1,0 +1,17 @@
+module mux_4_1_tb;
+  reg s0,s1;
+  reg i0, i1, i2, i3;
+  wire y;
+  mux_4_1 DUT(i0,i1,i2,i3,s0,s1,y);
+initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars(0, mux_4_1_tb);
+  $monitor("s0=%b s1=%b i0=%b i1=%b i2=%b i3=%b y=%b",s0,s1,i0,i1,i2,i3, y);
+    i0 = 0; i1 = 1; i2 = 0; i3 = 1;
+  {s1,s0} = 2'b00; #10;
+  {s1,s0} = 2'b01; #10;
+  {s1,s0} = 2'b10; #10;
+  {s1,s0} = 2'b11; #10;
+  $finish;
+ end
+endmodule
