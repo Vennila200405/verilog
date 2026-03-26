@@ -1,0 +1,15 @@
+module half_subtractor_tb;
+  reg a,b;
+  wire difference,borrow;
+  half_subtractor navvan(a,b,difference,borrow);
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars();
+    $monitor("a=%b b=%b difference=%b borrow=%b",a,b,difference,borrow);
+             a=0;b=0; #10
+             a=0;b=1; #10
+             a=1;b=0; #10
+             a=1;b=1; 
+             $finish;
+             end
+             endmodule
