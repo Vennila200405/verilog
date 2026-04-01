@@ -1,0 +1,22 @@
+module arithmetic_operators;
+integer x,y,z;
+initial begin
+        x=17;
+        y=8;
+        z=x+y;
+        $display("a=%0d b=%0d a+b=%0d",x,y,z);
+        z=x-y;
+        $display("a=%0d b=%0d a-b=%0d",x,y,z);
+        z=x*y;
+        $display("a=%0d b=%0d axb=%0d",x,y,z);
+        z=x/y;
+        $display("a=%0d b=%0d a/b=%0d",x,y,z);
+        z=x%y;
+        $display("a=%0d b=%0d a%%b=%0d",x,y,z);
+        z=+y;
+        $display("b=%0d Unary plus +b=%0d",y,z);
+        z=-y;
+        $display("b=%0d Unaru minus -b=%0d",y,z);
+end
+endmodule
+
