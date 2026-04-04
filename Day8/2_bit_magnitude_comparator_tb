@@ -1,0 +1,53 @@
+endmodule
+🔹 Testbench for 2-bit Comparator
+
+This testbench checks all possible combinations of inputs.
+
+`timescale 1ns/1ps
+
+module comparator_2bit_tb;
+
+reg [1:0] A;
+reg [1:0] B;
+wire gt;
+wire lt;
+wire eq;
+
+// Instantiate the comparator
+comparator_2bit uut (
+    .A(A),
+    .B(B),
+    .gt(gt),
+    .lt(lt),
+    .eq(eq)
+);
+
+initial begin
+    $display("A B | GT LT EQ");
+    $monitor("%b %b |  %b  %b  %b", A, B, gt, lt, eq);
+
+    // Test all combinations
+    A = 2'b00; B = 2'b00; #10;
+    A = 2'b00; B = 2'b01; #10;
+    A = 2'b00; B = 2'b10; #10;
+    A = 2'b00; B = 2'b11; #10;
+
+    A = 2'b01; B = 2'b00; #10;
+    A = 2'b01; B = 2'b01; #10;
+    A = 2'b01; B = 2'b10; #10;
+    A = 2'b01; B = 2'b11; #10;
+
+    A = 2'b10; B = 2'b00; #10;
+    A = 2'b10; B = 2'b01; #10;
+    A = 2'b10; B = 2'b10; #10;
+    A = 2'b10; B = 2'b11; #10;
+
+    A = 2'b11; B = 2'b00; #10;
+    A = 2'b11; B = 2'b01; #10;
+    A = 2'b11; B = 2'b10; #10;
+    A = 2'b11; B = 2'b11; #10;
+
+    $finish;
+end
+
+endmodule
